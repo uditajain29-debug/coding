@@ -1,0 +1,60 @@
+//Q101: Write a Program to take a sorted array(say nums[]) and an integer (say target) as inputs. The elements in the sorted array might be repeated. You need to print the first and last occurrence of the target and print the index of first and last occurrence. Print -1, -1 if the target is not present.
+
+/*
+Sample Test Cases:
+Input 1:
+nums = [5,7,7,8,8,10], target = 8
+Output 1:
+3,4
+
+Input 2:
+ nums = [5,7,7,8,8,10], target = 6
+Output 2:
+-1,-1
+
+Input 3:
+ nums = [5,7,7,8,8,10], target = 10
+Output 3:
+5,5
+
+*/
+#include <stdio.h>
+int firstOccurrence(int arr[], int n, int key)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==key)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int lastOccurrence(int arr[], int n, int key)
+{
+    for(int i=n-1;i>=0;i--)
+    {
+        if(arr[i]==key)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int main()
+{
+int n,key,arr[100];
+printf("Enter the size of the array: ");
+scanf("%d",&n);
+printf("Enter the elements of the array: ");
+for(int i=0;i<n;i++)
+{
+scanf("%d",&arr[i]);
+}
+printf("Enter the target element: ");
+scanf("%d",&key);
+int first=firstOccurrence(arr,n,key);
+int last=lastOccurrence(arr,n,key);
+printf("first occurrence: %d, last occurrence: %d\n",first,last);
+return 0;
+}
